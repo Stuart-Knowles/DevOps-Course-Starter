@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 
 from todo_app.flask_config import Config
 
@@ -12,3 +12,13 @@ app.config.from_object(Config())
 def index():
     items = session_items.get_items()
     return render_template("index.html", items=items)
+
+@app.post('/item')
+def add_item():
+    print(request.__dict__)
+    submitted_title = request.form.get('title')
+    if submitted_title is None:
+        app.logger.warning("item not provided")
+    else:
+        session_items.add_item(request.form.get('title'))
+    return redirect("/")
