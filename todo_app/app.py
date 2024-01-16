@@ -15,7 +15,6 @@ def index():
 
 @app.post('/item')
 def add_item():
-    print(request.__dict__)
     submitted_title = request.form.get('title')
     if submitted_title is None:
         app.logger.warning("item not provided")
