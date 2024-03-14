@@ -2,30 +2,43 @@
 {% block title %}To-Do App{% endblock %}
 
 {% block content %}
-  <div class="jumbotron">
-    <h1 class="display-4">To-Do App</h1>
-    <p class="lead">Just another to-do app.</p>
-  </div>
+<div class="jumbotron">
+  <h1 class="display-4">To-Do App</h1>
+  <p class="lead">Just another to-do app.</p>
+</div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <h2>Items</h2>
-      <ul class="list-group mb-4">
-        {% for item in items %}
-          <li> {{ item['title'] }}</li>
-        {% endfor %}
-      </ul>
-    </div>
+<div class="row">
+  <div class="col-md-12">
+    <h2>To do</h2>
+    <ul class="list-group mb-4">
+      {% for item in to_do_items %}
+      <li>
+        <form action="/complete_item/{{ item['id'] }}" method="post">
+          {{ item['title'] }}
+          <button type="submit"> done </button>
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+    <h2>Done</h2>
+    <ul class="list-group mb-4">
+      {% for item in done_items %}
+      <li>
+        {{ item['title'] }}
+      </li>
+      {% endfor %}
+    </ul>
   </div>
+</div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <h2>Add item</h2>
-      <form action="/item" method="post">
-          <label for="title"> Title </label>
-          <input type="text" name="title" id="title" required />
-          <button type="submit"> Add </button>
-      </form>
-    </div>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Add item</h2>
+    <form action="/item" method="post">
+      <label for="title"> Title </label>
+      <input type="text" name="title" id="title" required />
+      <button type="submit"> Add </button>
+    </form>
   </div>
+</div>
 {% endblock %}
