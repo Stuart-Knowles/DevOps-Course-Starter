@@ -2,8 +2,8 @@ from flask import Flask, render_template, request, redirect
 
 from todo_app.flask_config import Config
 
-from .data import trello_items
-from .helpers import partition
+from .src import trello_items
+from .src.helpers import partition
 
 app = Flask(__name__)
 app.config.from_object(Config())
@@ -11,7 +11,7 @@ app.config.from_object(Config())
 
 @app.route("/")
 def index():
-    to_do, done = partition(lambda x: x["status"] == "Done", trello_items.get_items())
+    to_do, done = partition(lambda x: x.status == "Done", trello_items.get_items())
     return render_template("index.html", to_do_items=to_do, done_items=done)
 
 

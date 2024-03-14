@@ -13,8 +13,8 @@
     <ul class="list-group mb-4">
       {% for item in to_do_items %}
       <li>
-        <form action="/complete_item/{{ item['id'] }}" method="post">
-          {{ item['title'] }}
+        <form action="/complete_item/{{ item.id }}" method="post">
+          {{ item.name }}
           <button type="submit"> done </button>
         </form>
       </li>
@@ -24,7 +24,7 @@
     <ul class="list-group mb-4">
       {% for item in done_items %}
       <li>
-        {{ item['title'] }}
+        {{ item.name }}
       </li>
       {% endfor %}
     </ul>

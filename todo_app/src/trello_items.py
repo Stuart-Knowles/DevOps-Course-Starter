@@ -1,4 +1,5 @@
 import os
+from dataclasses import dataclass
 
 import requests
 
@@ -20,6 +21,17 @@ list_names_to_id = {
 list_ids_to_name = {v: k for k, v in list_names_to_id.items()}
 
 
+@dataclass
+class Item:
+    id: str
+    name: str
+    status: str
+
+    @classmethod
+    def from_trello(cls, card):
+        return cls(id=card["id"], name=card["name"], status=list_ids_to_name[card["idList"]])
+
+
 def get_items():
     response = requests.get(
         BASE_URL + f"boards/{BOARD_ID}/cards",
@@ -27,14 +39,7 @@ def get_items():
         params=BASE_QUERY,
     )
 
-    return [
-        {
-            "id": card["id"],
-            "status": list_ids_to_name[card["idList"]],
-            "title": card["name"],
-        }
-        for card in response.json()
-    ]
+    return [Item.from_trello(card) for card in response.json()]
 
 
 def add_item(title):
