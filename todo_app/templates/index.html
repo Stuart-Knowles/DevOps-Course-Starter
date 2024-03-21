@@ -11,7 +11,7 @@
   <div class="col-md-12">
     <h2>To do</h2>
     <ul class="list-group mb-4">
-      {% for item in to_do_items %}
+      {% for item in view.to_do_items %}
       <li>
         <form action="/complete_item/{{ item.id }}" method="post">
           {{ item.name }}
@@ -22,7 +22,7 @@
     </ul>
     <h2>Done</h2>
     <ul class="list-group mb-4">
-      {% for item in done_items %}
+      {% for item in view.done_items %}
       <li>
         {{ item.name }}
       </li>

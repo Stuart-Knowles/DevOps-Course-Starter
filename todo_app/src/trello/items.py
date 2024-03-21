@@ -3,7 +3,7 @@ from dataclasses import dataclass
 
 import requests
 
-from .trello_config import get_trello_config
+from .config import get_trello_config
 
 
 @dataclass
