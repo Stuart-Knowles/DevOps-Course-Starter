@@ -38,11 +38,12 @@
   </div>
 </div>
 
-<div class="w-50 m-auto">
-  <h3>Add item</h3>
+<div class="w-50 mx-auto mt-4">
   <form action="/item" method="post">
     <div class="form-group mb-2 d-flex flex-row gap-2 align-items-center">
-      <label for="title"> Title </label>
+      <label for="title">
+        <h3 class="text-nowrap">Add item</h3>
+      </label>
       <input type="text" name="title" id="title" required class="form-control" />
       <button type="submit" class="btn btn-primary"> Add </button>
     </div>
