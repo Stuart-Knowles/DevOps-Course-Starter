@@ -2,28 +2,35 @@
 {% block title %}To-Do App{% endblock %}
 
 {% block content %}
-<div class="jumbotron">
+<div class="p-5 bg-secondary bg-gradient text-light rounded">
   <h1 class="display-4">To-Do App</h1>
   <p class="lead">Just another to-do app.</p>
 </div>
 
+
 <div class="row">
-  <div class="col-md-12">
+  <div class="col">
     <h2>To do</h2>
-    <ul class="list-group mb-4">
-      {% for item in to_do_items %}
-      <li>
+    <ul class="list-group">
+      {% for item in view.to_do_items %}
+      <li class="list-group-item">
         <form action="/complete_item/{{ item.id }}" method="post">
-          {{ item.name }}
-          <button type="submit"> done </button>
+          <div class="d-flex flex-row justify-content-between align-items-center">
+            <span>
+              {{ item.name }}
+            </span>
+            <button type="submit" class="btn btn-primary"> done </button>
+          </div>
         </form>
       </li>
       {% endfor %}
     </ul>
+  </div>
+  <div class="col">
     <h2>Done</h2>
-    <ul class="list-group mb-4">
-      {% for item in done_items %}
-      <li>
+    <ul class="list-group">
+      {% for item in view.done_items %}
+      <li class="list-group-item">
         {{ item.name }}
       </li>
       {% endfor %}
@@ -31,14 +38,15 @@
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
-    <h2>Add item</h2>
-    <form action="/item" method="post">
-      <label for="title"> Title </label>
-      <input type="text" name="title" id="title" required />
-      <button type="submit"> Add </button>
-    </form>
-  </div>
+<div class="w-50 mx-auto mt-4">
+  <form action="/item" method="post">
+    <div class="form-group mb-2 d-flex flex-row gap-2 align-items-center">
+      <label for="title">
+        <h3 class="text-nowrap">Add item</h3>
+      </label>
+      <input type="text" name="title" id="title" required class="form-control" />
+      <button type="submit" class="btn btn-primary"> Add </button>
+    </div>
+  </form>
 </div>
 {% endblock %}

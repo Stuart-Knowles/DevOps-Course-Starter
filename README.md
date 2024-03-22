@@ -57,3 +57,7 @@ Press CTRL+C to quit
  * Debugger PIN: 113-666-066
 ```
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
+
+
+## Running Tests
+run `poetry run pytest` from within the repo root to run all tests. See the pytest documentation for how to select individual tests
