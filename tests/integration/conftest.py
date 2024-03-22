@@ -7,7 +7,6 @@ from todo_app.app import create_app
 @pytest.fixture(autouse=True, scope="package")
 def environment():
     load_dotenv(".env.test")
-    yield
 
 
 @pytest.fixture(scope="package")

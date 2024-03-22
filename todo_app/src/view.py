@@ -11,8 +11,8 @@ class ViewModel:
 
     @property
     def done_items(self):
-        return filter(lambda item: item.status == self.done_status, self.items)
+        return list(filter(lambda item: item.status == self.done_status, self.items))
 
     @property
     def to_do_items(self):
-        return filter(lambda item: item.status != self.done_status, self.items)
+        return list(filter(lambda item: item.status != self.done_status, self.items))
