@@ -61,3 +61,12 @@ Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser
 
 ## Running Tests
 run `poetry run pytest` from within the repo root to run all tests. See the pytest documentation for how to select individual tests
+
+
+## Deployment
+To provision a managed node from an ansible control node, do the following:
+1. Make sure the managed node's IP address is in `deployment/inventory.ini`
+1. Copy `inventory.ini` and `playbook.yml` into the control node
+1. run `ansible-playbook playbook.yml -i inventory.ini`
+1. provide the environment variables when prompted
+1. access the site at port 5000 on your managed node's IP address
