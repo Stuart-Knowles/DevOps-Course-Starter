@@ -1,0 +1,14 @@
+name: ultimate-todo-app-of-ultimate-destiny
+
+services:
+  todo-app:
+    image: todo-app
+    build: .
+    ports:
+      - 5000:5000
+    env_file: .env
+    develop:
+      watch:
+        - action: sync
+          path: ./todo_app
+          target: /src/todo_app
