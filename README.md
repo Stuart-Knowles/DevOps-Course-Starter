@@ -1,21 +1,14 @@
 # DevOps Apprenticeship: Project Exercise
 
-> If you are using GitPod for the project exercise (i.e. you cannot use your local machine) then you'll want to launch a VM using the [following link](https://gitpod.io/#https://github.com/CorndelWithSoftwire/DevOps-Course-Starter). Note this VM comes pre-setup with Python & Poetry pre-installed.
-
 ## System Requirements
 
 The project uses poetry for Python to create an isolated environment and manage package dependencies. To prepare your system, ensure you have an official distribution of Python version 3.8+ and install Poetry using one of the following commands (as instructed by the [poetry documentation](https://python-poetry.org/docs/#system-requirements)):
 
-### Poetry installation (Bash)
+### Poetry installation
 
-```bash
-curl -sSL https://install.python-poetry.org | python3 -
 ```
-
-### Poetry installation (PowerShell)
-
-```powershell
-(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | py -
+pip install pipx
+pipx install poetry
 ```
 
 You can check poetry is installed by running `poetry --version` from a terminal.
@@ -70,3 +63,4 @@ To provision a managed node from an ansible control node, do the following:
 1. run `ansible-playbook playbook.yml -i inventory.ini`
 1. provide the environment variables when prompted
 1. access the site at port 5000 on your managed node's IP address
+
