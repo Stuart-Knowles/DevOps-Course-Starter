@@ -54,7 +54,7 @@ Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser
 ## Running in a container
 To run the app in a docker container, run:
 ```
-docker compose up app
+docker compose up todo-app
 ```
 If you add the `--watch` option, the container will sync with local changes to allow dev work.
 

@@ -2,3 +2,5 @@ Dockerfile
 docker-compose.yml
 deployment/
 .*
+**/__pycache__
+**/.pytest_cache
