@@ -1,0 +1,22 @@
+name: ultimate-todo-app-of-ultimate-destiny
+
+services:
+  todo-app:
+    image: todo-app
+    build: 
+      target: app
+    ports:
+      - 5000:5000
+    env_file: .env
+    develop:
+      watch:
+        - action: sync
+          path: ./todo_app
+          target: /src/todo_app
+  
+  tests:
+    image: todo-app-tests
+    build:
+      target: test
+    pull_policy: build
+    env_file: .env.test
