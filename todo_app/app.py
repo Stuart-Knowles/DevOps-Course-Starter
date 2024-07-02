@@ -15,6 +15,10 @@ def create_app():
         view = ViewModel(items=trello.get_items())
         return render_template("index.html", view=view)
 
+    @app.route("/info")
+    def info():
+        return render_template("info.html")
+
     @app.post("/item")
     def add_item():
         submitted_title = request.form.get("title")
